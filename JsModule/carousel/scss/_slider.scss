@@ -1,0 +1,155 @@
+/* Slider */
+.slick-prev,
+.slick-next{
+  display: block;
+  position: absolute;
+  top: calc(50% - 28px);
+  width: 39px;
+  height: 58px;
+  line-height: 0px;
+  font-size: 0px;
+  cursor: pointer;
+  background: transparent;
+  color: transparent;
+  border: none;
+  outline: none;
+  z-index: 1;
+  background: url(../images/btn_arrow.svg) no-repeat 0 0;
+  transition: all .3s ease;
+  transform: rotate(180deg);
+  &:hover, &:focus{
+    outline: none;
+    opacity: .7;
+  }
+}
+
+.slick-prev:before,
+.slick-next:before{
+  font-size: 20px;
+  line-height: 1;
+}
+.slick-prev.slick-disabled,
+.slick-next.slick-disabled
+{
+  opacity: .25;
+}
+.slick-prev{
+  left: -60px;
+}
+.slick-next{
+  right: -60px;
+  transform: rotate(0deg);
+}
+
+.slick-dots{
+  text-align: center;
+  font-size: 0;
+  li{
+    display: inline-block;
+    width: 56px;
+    height: 2px;
+    margin: 0 1px;
+    cursor: pointer;
+    position: relative;
+    z-index: 1;
+    padding: 5px 0;
+    button{
+      display: none;
+    }
+    &:after{
+      content: "";
+      display: block;
+      background: #d9d9d9;
+      width: 56px;
+      height: 4px;
+      transition: all .3s ease;
+    }
+    &.slick-active:after,
+    &:hover:after{
+      background: #444;
+    }
+  }
+}
+@media screen and (max-width: 767px){
+  .slick-prev{
+  }
+  .slick-next{
+  }
+  .slick-dotted .slick-slider{
+      margin-bottom: 30px;
+  }
+}
+
+/* Slider */
+.slick-slider{
+  position: relative;
+  display: block;
+  box-sizing: border-box;
+  -webkit-touch-callout: none;
+  user-select: none;
+  -ms-touch-action: pan-y;
+  touch-action: pan-y;
+  -webkit-tap-highlight-color: transparent;
+}
+.slick-list{
+  position: relative;
+  overflow: hidden;
+  display: block;
+  margin: 0;
+  padding: 0;
+  &:focus{
+    outline: none;
+  }
+  &.dragging{
+    cursor: pointer;
+    cursor: hand;
+  }
+}
+.slick-slider .slick-track,
+.slick-slider .slick-list{
+  transform: translate3d(0, 0, 0);
+}
+.slick-track{
+  position: relative;
+  left: 0;
+  top: 0;
+  display: block;
+  &:before,
+  &:after{
+    content: "";
+    display: table;
+  }
+  &:after{
+    clear: both;
+  }
+  .slick-loading &{
+    visibility: hidden;
+  }
+}
+.slick-slide{
+  float: left;
+  height: 100%;
+  min-height: 1px;
+  display: none;
+  &:focus{
+    outline: none;
+  }
+  [dir="rtl"] &{
+    float: right;
+  }
+  img{
+    display: block;
+  }
+  &.slick-loading img{
+    display: none;
+  }
+  &.dragging img{
+    pointer-events: none;
+  }
+  .slick-initialized &{
+    display: block;
+  }
+}
+.slick-arrow.slick-hidden{
+  display: none;
+}

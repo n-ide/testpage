@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>特定のエリアでバナーを表示する</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <link rel="stylesheet" href="./css/index.css">
+  </head>
+  <body>
+    <header id="header" role="banner">
+      <nav id="pageNav">
+        <ul>
+          <li><a href="#content-1">Content-1</a></li>
+          <li><a href="#content-2">Content-2</a></li>
+          <li><a href="#content-3">Content-3</a></li>
+          <li><a href="#content-4">Content-4</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <main id="main" role="main">
+
+      <div class="banner is-active">
+        <div class="btn-toggle">
+          <div class="panel">
+            <a href="#">
+              <p>Content-2のエリアのみバナーが表示される</p>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <section class="section" id="content-1">
+        <div class="inner">
+          <div class="inner-box">
+            <div class="box">
+              <h2>Content-1</h2>
+              <p>スクロールをしてContent-3がヘッダーに来たらバナーを消す</p>
+              <p>スクロールをしてContent-3がヘッダーより下に来たらバナーを表示する</p>
+              <p>バナーを閉じる矢印を押すと スクロール制御の開くをやめる</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" id="content-2">
+        <div class="inner">
+          <div class="inner-box">
+            <div class="box">
+              <h2>Content-2</h2>
+              <p>スクロールをしてContent-3がヘッダーに来たらバナーを消す</p>
+              <p>スクロールをしてContent-3がヘッダーより下に来たらバナーを表示する</p>
+              <p>バナーを閉じる矢印を押すと スクロール制御の開くをやめる</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" id="content-3">
+        <div class="inner">
+          <div class="inner-box">
+            <div class="box">
+              <h2>Content-3</h2>
+              <p>スクロールをしてContent-3がヘッダーに来たらバナーを消す</p>
+              <p>スクロールをしてContent-3がヘッダーより下に来たらバナーを表示する</p>
+              <p>バナーを閉じる矢印を押すと スクロール制御の開くをやめる</p>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section class="section" id="content-4">
+        <div class="inner">
+          <div class="inner-box">
+            <div class="box">
+              <h2>Content-4</h2>
+              <p>スクロールをしてContent-3がヘッダーに来たらバナーを消す</p>
+              <p>スクロールをしてContent-3がヘッダーより下に来たらバナーを表示する</p>
+              <p>バナーを閉じる矢印を押すと スクロール制御の開くをやめる</p>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <script src="./js/jquery-1.11.3.min.js"></script>
+    <script>
+      // バナー制御
+      var bnrFlag = false;
+      var bnrOpenArea = $('#content-3');
+      var targetAreaBanner = bnrOpenArea.offset().top - 75;
+      var btnToggle = $('.banner .btn-toggle');
+      var banner = $('.banner');
+      $(window).scroll(function() {
+        var scrollTop = $(window).scrollTop();
+        if (bnrFlag == false){
+          if(targetAreaBanner <= scrollTop) {
+            banner.removeClass('is-active');
+          } else {
+            banner.addClass('is-active');
+          }
+          bnrFlag = false;
+
+        } else {
+          if(targetAreaBanner <= scrollTop) {
+            banner.removeClass('is-active');
+          } else {
+            // banner.addClass('is-active');
+          }
+        }
+      });
+
+      $(function () {
+        btnToggle.on('click', function () {
+          banner.toggleClass('is-active');
+          bnrFlag = true;
+        });
+      });
+    </script>
+  </body>
+</html>

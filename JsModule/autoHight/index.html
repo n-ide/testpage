@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>要素の高さを揃えたい</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <link rel="stylesheet" href="./css/index.css">
+  </head>
+  <body>
+
+    <main id="main" role="main">
+      <section class="section">
+        <div class="inner">
+          <div class="inner-box">
+            <p class="txt">ロードやリサイズ時に、行ごとの高さを取得して一番大きい高さに調整してくれる。</p>
+            <p>要素の幅が50%の場合</p>
+            <ul class="list-1">
+              <li>テキストテキストテキストテキストテキストテキストテキストテキスト</li>
+              <li>テキスト</li>
+              <li>テキスト</li>
+              <li>テキストテキストテキストテキスト</li>
+              <li>テキストテキストテキスト</li>
+              <li>テキストテキスト</li>
+            </ul>
+
+            <p>要素の幅が25%の場合</p>
+            <ul class="list-2">
+              <li>テキストテキストテキストテキストテキストテキストテキストテキスト</li>
+              <li>テキスト</li>
+              <li>テキスト</li>
+              <li>テキストテキストテキストテキスト</li>
+              <li>テキストテキストテキスト</li>
+              <li>テキストテキスト</li>
+            </ul>
+
+            <p>要素の幅が200px固定の場合</p>
+            <ul class="list-3">
+              <li>テキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキスト</li>
+              <li>テキスト</li>
+              <li>テキスト</li>
+              <li>テキストテキストテキストテキスト</li>
+              <li>テキストテキストテキスト</li>
+              <li>テキストテキスト</li>
+              <li>テキストテキストテキストテキストテキストテキストテキストテキスト</li>
+              <li>テキスト</li>
+              <li>テキスト</li>
+              <li>テキストテキストテキストテキスト</li>
+              <li>テキストテキストテキスト</li>
+              <li>テキストテキスト</li>
+            </ul>
+
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <script src="./js/jquery-1.11.3.min.js"></script>
+    <script src="./js/jquery.matchHeight.js"></script>
+    <script>
+      // 高さを合わせたい要素を指定するだけです。
+      $(function(){
+      　$('.list-1 li').matchHeight();
+      　$('.list-2 li').matchHeight();
+      　$('.list-3 li').matchHeight();
+      });
+    </script>
+  </body>
+</html>

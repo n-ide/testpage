@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>youtubeをbackgroundで再生</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <link rel="stylesheet" href="./css/index.css">
+  </head>
+  <body>
+    <div id="player"></div>
+
+    <main id="main" role="main">
+      <section class="section">
+        <div class="inner">
+          <div class="inner-box">
+            <ul class="page-link">
+              <li><a href="#">OUR VISION</a></li>
+              <li><a href="#">ABOUT THEME</a></li>
+              <li><a href="#">NEWS</a></li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+
+      <section class="section">
+        <div class="inner">
+          <div class="inner-box">
+            <div class="box">
+              <p>テキストテキストテキスト</p>
+              <p>テキストテキストテキスト</p>
+              <p>テキストテキストテキスト</p>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <script src="./js/jquery-1.11.3.min.js"></script>
+    <script src="./js/backgroundYoutube.js"></script>
+    <script>
+      // backgroundYoutube
+      $(function() {
+        $('body').tubular({
+          videoId: 'L3DZWtoei8s'
+        });
+      });
+    </script>
+  </body>
+</html>

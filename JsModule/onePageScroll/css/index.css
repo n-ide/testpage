@@ -1,0 +1,213 @@
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  vertical-align: baseline;
+}
+
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section {
+  display: block;
+}
+
+body {
+  line-height: 1;
+}
+
+ol, ul {
+  list-style: none;
+}
+
+blockquote, q {
+  quotes: none;
+}
+
+blockquote:before, blockquote:after,
+q:before, q:after {
+  content: '';
+  content: none;
+}
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+img {
+  vertical-align: top;
+}
+
+a {
+  cursor: pointer;
+}
+
+/* main
+/* .section
+--------------------------- */
+.side-navi {
+  position: fixed;
+  top: 0;
+  right: 0;
+  z-index: 4;
+  width: 30px;
+  height: 100vh;
+  display: table;
+}
+.side-navi ul {
+  display: table-cell;
+  vertical-align: middle;
+}
+.side-navi ul li {
+  display: block;
+  width: 10px;
+  height: 10px;
+  margin: 20px auto;
+  padding: 4px;
+  border: 1px solid rgba(255, 255, 255, 0);
+  border-radius: 100%;
+  transition: all .3s ease;
+}
+.side-navi ul li a {
+  display: block;
+  width: 100%;
+  height: 100%;
+  background: #fff;
+  border-radius: 100%;
+}
+.side-navi ul li.is-active {
+  border: 1px solid white;
+}
+
+.section {
+  width: 100%;
+  height: 100vh;
+  position: relative;
+  display: table;
+  z-index: 3;
+}
+.section .inner {
+  display: table-cell;
+  vertical-align: middle;
+  width: 100%;
+  padding: 0 30px;
+  box-sizing: border-box;
+}
+.section .inner .inner-box {
+  max-width: 1240px;
+  box-sizing: border-box;
+  margin: auto;
+}
+.section.section-1 {
+  background: #65c2cf;
+}
+.section.section-2 {
+  background: #e14456;
+}
+.section.section-3 {
+  background: #6dcb94;
+}
+.section.section-4 {
+  background: #ec8200;
+}
+
+h2 {
+  text-align: center;
+  font-size: 42px;
+  color: #fff;
+  margin-bottom: 50px;
+}
+
+.page-link {
+  text-align: center;
+}
+.page-link li {
+  display: inline-block;
+  width: 180px;
+  margin: 0 10px;
+}
+.page-link li a {
+  transition: all .3s ease;
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  padding: 20px;
+  box-sizing: border-box;
+  display: block;
+  width: 100%;
+  white-space: nowrap;
+  text-decoration: none;
+  text-align: center;
+  color: #fff;
+}
+.page-link li a:hover {
+  border: 1px solid white;
+  background-color: rgba(255, 255, 255, 0.5);
+}
+
+.scroll-btn {
+  position: absolute;
+  left: 50%;
+  bottom: 50px;
+  width: 45px;
+  height: 35px;
+  text-align: center;
+  -webkit-animation: scrollAnimation 10s infinite ease normal;
+  animation: scrollAnimation 10s infinite ease normal;
+  font-size: 0;
+  overflow: hidden;
+  text-indent: -9999px;
+  cursor: pointer;
+}
+.scroll-btn:after {
+  position: absolute;
+  top: 0;
+  right: 10px;
+  display: inline-block;
+  content: "";
+  width: 20px;
+  height: 20px;
+  border-right: 4px solid #fff;
+  border-bottom: 4px solid #fff;
+  transform: rotate(45deg);
+  transition: all .3s ease;
+}
+.scroll-btn:hover:after {
+  transform: scale(1.3) rotate(45deg);
+}
+@-webkit-keyframes scrollAnimation {
+  0% {
+    -webkit-transform: translate(0, 0);
+  }
+  5% {
+    -webkit-transform: translate(0, 20px);
+  }
+  10% {
+    -webkit-transform: translate(0, 0);
+  }
+}
+@keyframes scrollAnimation {
+  0% {
+    transform: translate(0, 0);
+  }
+  3% {
+    transform: translate(0, -5px);
+  }
+  6% {
+    transform: translate(0, 20px);
+  }
+  10% {
+    transform: translate(0, 0);
+  }
+}

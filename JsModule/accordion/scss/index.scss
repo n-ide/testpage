@@ -1,0 +1,74 @@
+@import "reset";
+
+
+
+/* main
+/* .section
+--------------------------- */
+.section{
+  width: 100%;
+  position: relative;
+  padding-bottom: 1000px;
+}
+.discription{
+  padding: 50px 30px;
+}
+.acd-contents{
+  .acd-ttl{
+    padding: 11px 120px 10px 30px;
+    border-top: 1px solid #d9d9d9;
+    font-size: 20px;
+    cursor: pointer;
+    position: relative;
+    min-height: 28px;
+    .number{
+      font-size: 20px;
+    }
+    &:after{
+      position: absolute;
+      top: 0;
+      right: 0;
+      content: "";
+      display: block;
+      width: 80px;
+      height: 48px;
+      background-image: url(../images/icon-puls.png);
+      background-size: 14px;
+      background-position: center;
+      background-repeat: no-repeat;
+      background-color: #d9d9d9;
+      transition: all .3s ease;
+    }
+    &.is-active{
+      background: #f2f2f2;
+      &:after{
+        background-image: url(../images/icon-minus.png);
+      }
+    }
+    &:hover{
+      color: #000;
+      &:after{
+        opacity: .7;
+      }
+    }
+  }
+  .acd-detail{
+    padding: 40px 30px 70px;
+    display: none;
+    background: #f2f2f2;
+    p{
+      line-height: 1.4;
+    }
+  }
+  &.is-active{
+    background: #f2f2f2;
+    .acd-ttl{
+      &:after{
+        background-image: url(/images/common/icon-minus.png);
+      }
+    }
+    .acd-detail{
+      display: block;
+    }
+  }
+}

@@ -1,0 +1,125 @@
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  vertical-align: baseline;
+}
+
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section {
+  display: block;
+}
+
+body {
+  line-height: 1;
+}
+
+ol, ul {
+  list-style: none;
+}
+
+blockquote, q {
+  quotes: none;
+}
+
+blockquote:before, blockquote:after,
+q:before, q:after {
+  content: '';
+  content: none;
+}
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+img {
+  vertical-align: top;
+}
+
+a {
+  cursor: pointer;
+}
+
+/* main
+/* .section
+--------------------------- */
+.section {
+  width: 100%;
+  position: relative;
+  padding-bottom: 1000px;
+}
+
+.discription {
+  padding: 50px 30px;
+}
+
+.acd-contents .acd-ttl {
+  padding: 11px 120px 10px 30px;
+  border-top: 1px solid #d9d9d9;
+  font-size: 20px;
+  cursor: pointer;
+  position: relative;
+  min-height: 28px;
+}
+.acd-contents .acd-ttl .number {
+  font-size: 20px;
+}
+.acd-contents .acd-ttl:after {
+  position: absolute;
+  top: 0;
+  right: 0;
+  content: "";
+  display: block;
+  width: 80px;
+  height: 48px;
+  background-image: url(../images/icon-puls.png);
+  background-size: 14px;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-color: #d9d9d9;
+  transition: all .3s ease;
+}
+.acd-contents .acd-ttl.is-active {
+  background: #f2f2f2;
+}
+.acd-contents .acd-ttl.is-active:after {
+  background-image: url(../images/icon-minus.png);
+}
+.acd-contents .acd-ttl:hover {
+  color: #000;
+}
+.acd-contents .acd-ttl:hover:after {
+  opacity: .7;
+}
+.acd-contents .acd-detail {
+  padding: 40px 30px 70px;
+  display: none;
+  background: #f2f2f2;
+}
+.acd-contents .acd-detail p {
+  line-height: 1.4;
+}
+.acd-contents.is-active {
+  background: #f2f2f2;
+}
+.acd-contents.is-active .acd-ttl:after {
+  background-image: url(/images/common/icon-minus.png);
+}
+.acd-contents.is-active .acd-detail {
+  display: block;
+}

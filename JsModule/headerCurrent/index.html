@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>ヘッダーメニューのカレント表示</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <link rel="stylesheet" href="./css/index.css">
+  </head>
+  <body>
+    <header id="header" role="banner">
+      <nav id="pageNav">
+        <ul>
+          <li class="is-active"><a href="#content-1">Content-1</a></li>
+          <li><a href="#content-2">Content-2</a></li>
+          <li><a href="#content-3">Content-3</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <main id="main" role="main">
+      <section class="section" id="content-1">
+        <div class="inner">
+          <div class="inner-box">
+            <div class="box">
+              <h2>Content-1</h2>
+              <p>テキストテキストテキスト</p>
+              <p>テキストテキストテキスト</p>
+              <p>テキストテキストテキスト</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" id="content-2">
+        <div class="inner">
+          <div class="inner-box">
+            <div class="box">
+              <h2>Content-2</h2>
+              <p>テキストテキストテキスト</p>
+              <p>テキストテキストテキスト</p>
+              <p>テキストテキストテキスト</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" id="content-3">
+        <div class="inner">
+          <div class="inner-box">
+            <div class="box">
+              <h2>Content-3</h2>
+              <p>テキストテキストテキスト</p>
+              <p>テキストテキストテキスト</p>
+              <p>テキストテキストテキスト</p>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <script src="./js/jquery-1.11.3.min.js"></script>
+    <script>
+      // ページ内スクロール
+      $(function(){
+        var $header = $('#header');
+        var headerHeight = $header.height();
+       $('a[href^=#]').click(function() {
+          var speed = 500;
+          var href= $(this).attr("href");
+          var target = $(href == "#" || href == "" ? 'html' : href);
+          var position = target.offset().top - headerHeight;
+          $('body,html').animate({scrollTop:position}, speed, 'swing');
+          return false;
+        });
+      });
+
+      //他ページからスクロールで移動
+      $(window).on('load', function () {
+        var $header = $('#header');
+        var headerHeight = $header.height();
+        var url = $(location).attr('href');
+        setTimeout(function(){
+          if (url.indexOf("?id=") != -1) {
+            var id = url.split("?id=");
+            var $target = $('#' + id[id.length - 1]);
+            history.replaceState('', '', 'index.html');
+            if ($target.length) {
+              var pos = $target.offset().top - headerHeight;
+              $("html, body").animate({ scrollTop: pos }, 500);
+            }
+          }
+        },100);
+      });
+
+
+     // メニューカレント表示
+     $(function() {
+        $(window).scroll(function () {
+          var globalNavListItem = $('#pageNav > ul > li');
+          var currentListItem;
+          var targetAreaElement;
+          var targetArea;
+          var targetAreaTop;
+          var currentTargetArea;
+          var scrollTop = $(window).scrollTop();
+
+          globalNavListItem.each(function () {
+            currentListItem = $(this);
+            targetAreaElement = currentListItem.find('a').attr('href');
+            targetArea = $(targetAreaElement);
+            targetAreaTop = targetArea.offset().top - 75;
+
+            if (targetAreaTop <= scrollTop && targetAreaTop + targetArea.height() + 75 > scrollTop) {
+              if (currentTargetArea === targetAreaElement) {
+                return;
+              }
+
+              currentTargetArea = targetAreaElement;
+
+              globalNavListItem.removeClass('is-active');
+              currentListItem.addClass('is-active');
+
+              return;
+            }
+          });
+        });
+      });
+    </script>
+  </body>
+</html>

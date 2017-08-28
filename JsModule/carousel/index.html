@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>カルーセルとモーダルの組み合わせ</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <link rel="stylesheet" href="./css/index.css">
+  </head>
+  <body>
+
+    <main id="main" role="main">
+      <section id="theme" data-section-name="theme" class="section">
+        <div class="inner">
+          <div class="inner-box">
+            <h2 class="hdg-lv2">カルーセルとモーダルの組み合わせ</h2>
+            <ul>
+              <li><a data-target="1" class="modal-open">Slide 1</a></li>
+              <li><a data-target="2" class="modal-open">Slide 2</a></li>
+              <li><a data-target="3" class="modal-open">Slide 3</a></li>
+              <li><a data-target="4" class="modal-open">Slide 4</a></li>
+              <li><a data-target="5" class="modal-open">Slide 5</a></li>
+            </ul>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <div class="modal-content">
+      <div class="modal-close"><span>×</span></div>
+      <div class="slider">
+        <div class="slide-content">
+          <img src="http://placehold.jp/800x600.png?text=slide 1">
+        </div>
+        <div class="slide-content">
+          <img src="http://placehold.jp/800x600.png?text=slide 2">
+        </div>
+        <div class="slide-content">
+          <img src="http://placehold.jp/800x600.png?text=slide 3">
+        </div>
+        <div class="slide-content">
+          <img src="http://placehold.jp/800x600.png?text=slide 4">
+        </div>
+        <div class="slide-content">
+          <img src="http://placehold.jp/800x600.png?text=slide 5">
+        </div>
+      </div>
+    </div>
+
+    <script src="./js/jquery-1.11.3.min.js"></script>
+    <script src="./js/slick.min.js"></script>
+    <script>
+      // modal
+      $(function(){
+        $('.modal-open').click(function(){
+          $('body').addClass('lock');
+          $('body').append('<div class="modal-overlay"></div>');
+          $('.modal-overlay').fadeIn('slow');
+          var modal = $('.modal-content');
+          $(modal).wrap("<div class='modal-wrap'></div>");
+          $('.modal-wrap').show();
+          modalResize();
+          $(modal).fadeIn('slow');
+          $(modal).click(function(e){
+              e.stopPropagation();
+          });
+          $('.modal-wrap, .modal-close').off().click(function(){
+            $(modal).fadeOut('slow');
+            $('.modal-wrap').fadeOut('slow',function(){
+              $('body').removeClass('lock');
+              $('.modal-overlay').remove();
+              $(modal).unwrap("<div class='modal-wrap'></div>");
+           });
+          });
+
+          $(window).on('resize', function(){
+            modalResize();
+          });
+          function modalResize(){
+            var h = $(window).height();
+            var mh = $(modal).outerHeight(true);
+            // $(modal).css({'top': 50 + 'px'});
+          }
+        });
+      });
+
+      // modal slick
+      $(function(){
+        var slider = $('.slider').slick({
+          initialSlide: 0,
+          adaptiveHeight: true,
+          infinite: true,
+          arrows: true
+        });
+        $('.modal-open').click(function(){
+          var initialslide = $(this).attr('data-target') -1;
+          slider.slick('slickGoTo', parseInt(initialslide, 10), true)
+          slider.css('opacity',0);
+          slider.animate({'z-index':1},300,function(){
+            slider.slick('setPosition');
+            slider.animate({'opacity':1});
+          });
+        });
+      });
+    </script>
+  </body>
+</html>

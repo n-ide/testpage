@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>画面ごとのスクロール</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <link rel="stylesheet" href="./css/index.css">
+  </head>
+  <body>
+    <main id="main" role="main">
+
+      <div class="side-navi">
+        <ul>
+          <li><a href="#section-1"></a></li>
+          <li><a href="#section-2"></a></li>
+          <li><a href="#section-3"></a></li>
+          <li><a href="#section-4"></a></li>
+        </ul>
+      </div>
+
+      <section data-section-name="section-1" class="section section-1">
+        <div class="inner">
+          <div class="inner-box">
+            <h2>section-1</h2>
+            <ul class="page-link">
+              <li><a href="#section-2">section-2</a></li>
+              <li><a href="#section-3">section-3</a></li>
+              <li><a href="#section-4">section-4</a></li>
+            </ul>
+          </div>
+        </div>
+        <div class="scroll-btn">scroll</div>
+      </section>
+
+
+      <section data-section-name="section-2" class="section section-2">
+        <div class="inner">
+          <div class="inner-box">
+            <h2>section-2</h2>
+            <ul class="page-link">
+              <li><a href="#section-1">section-1</a></li>
+              <li><a href="#section-3">section-3</a></li>
+              <li><a href="#section-4">section-4</a></li>
+            </ul>
+          </div>
+        </div>
+        <div class="scroll-btn">scroll</div>
+      </section>
+
+
+      <section data-section-name="section-3" class="section section-3">
+        <div class="inner">
+          <div class="inner-box">
+            <h2>section-3</h2>
+            <ul class="page-link">
+              <li><a href="#section-1">section-1</a></li>
+              <li><a href="#section-2">section-2</a></li>
+              <li><a href="#section-4">section-4</a></li>
+            </ul>
+          </div>
+        </div>
+        <div class="scroll-btn">scroll</div>
+      </section>
+
+      <section data-section-name="section-4" class="section section-4">
+        <div class="inner">
+          <div class="inner-box">
+            <h2>section-4</h2>
+            <ul class="page-link">
+              <li><a href="#section-1">section-1</a></li>
+              <li><a href="#section-2">section-2</a></li>
+              <li><a href="#section-3">section-3</a></li>
+            </ul>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <script src="./js/jquery-1.11.3.min.js"></script>
+    <script src="./js/jquery.scrollify.js"></script>
+    <script>
+      //scrollでコンテンツ移動
+      $(function() {
+        $.scrollify({
+          section : ".section",
+          sectionName : "section-name",
+        });
+        $(".scroll-btn").click(function(e) {
+          e.preventDefault();
+          $.scrollify.next();
+        });
+        $('a[href^="#"]').on("click",function() {
+          $.scrollify.move($(this).attr("href"));
+        });
+
+        //サイドナビ追加の処理
+        var set = 300;//ウインドウ上部からどれぐらいの位置で変化させるか
+        var boxTop = new Array;
+        var current = -1;
+        //各要素の位置
+        $('.section').each(function(i) {
+          boxTop[i] = $(this).offset().top;
+        });
+        //最初の要素にclass="is-active"をつける
+        changeBox(0);
+        //スクロールした時の処理
+        $(window).scroll(function(){
+          scrollPosition = $(window).scrollTop();
+          for (var i = boxTop.length - 1 ; i >= 0; i--) {
+            if ($(window).scrollTop() > boxTop[i] - set) {
+              changeBox(i);
+              break;
+            }
+          };
+        });
+        //ナビの処理
+        function changeBox(secNum) {
+          if (secNum != current) {
+            current = secNum;
+            secNum2 = secNum + 1;//HTML順序用
+            $('.side-navi li').removeClass('is-active');
+            $('.side-navi li:nth-child(' + secNum2 +')').addClass('is-active');
+          }
+        };
+      });
+    </script>
+  </body>
+</html>
