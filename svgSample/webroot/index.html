@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>SVG</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="css/common.css">
+    <link rel="stylesheet" href="css/index.css">
+    <body>
+      <main id="main" role="main">
+        <div class="block" id="sample-1">
+          <h2>CSSの変更</h2>
+          <p>オンマウスで色を変更（直接SVGタグを書く）</p><a href="">
+            <svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 48 48">
+              <defs></defs>
+              <g class="icon-camara">
+                <circle class="svg-1" cx="24" cy="27" r="7.5"></circle>
+                <path class="svg-1" d="M40,12H34l-3.4-5.11A2,2,0,0,0,28.93,6H19.07a2,2,0,0,0-1.66.89L14,12H8a5,5,0,0,0-5,5V37a5,5,0,0,0,5,5H40a5,5,0,0,0,5-5V17A5,5,0,0,0,40,12ZM24,37.5A10.5,10.5,0,1,1,34.5,27,10.5,10.5,0,0,1,24,37.5Z"></path>
+              </g>
+            </svg></a>
+        </div>
+        <div class="block" id="sample-2">
+          <p>アニメーション移動</p><a href="">
+            <svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 48 48">
+              <defs></defs>
+              <g class="icon-camara">
+                <circle class="svg-2" cx="24" cy="27" r="7.5"></circle>
+                <path class="svg-2" d="M40,12H34l-3.4-5.11A2,2,0,0,0,28.93,6H19.07a2,2,0,0,0-1.66.89L14,12H8a5,5,0,0,0-5,5V37a5,5,0,0,0,5,5H40a5,5,0,0,0,5-5V17A5,5,0,0,0,40,12ZM24,37.5A10.5,10.5,0,1,1,34.5,27,10.5,10.5,0,0,1,24,37.5Z"></path>
+              </g>
+            </svg></a>
+        </div>
+        <div class="block" id="sample-3">
+          <p>アニメーション書き上げる</p><a href="">
+            <svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 48 48">
+              <defs></defs>
+              <g class="icon-camara">
+                <circle class="svg-3" cx="24" cy="27" r="7.5"></circle>
+                <path class="svg-3" d="M40,12H34l-3.4-5.11A2,2,0,0,0,28.93,6H19.07a2,2,0,0,0-1.66.89L14,12H8a5,5,0,0,0-5,5V37a5,5,0,0,0,5,5H40a5,5,0,0,0,5-5V17A5,5,0,0,0,40,12ZM24,37.5A10.5,10.5,0,1,1,34.5,27,10.5,10.5,0,0,1,24,37.5Z"></path>
+              </g>
+            </svg></a>
+        </div>
+        <div class="block" id="sample-4">
+          <h2>フィルター</h2>
+          <p>ぼかし、色相を変換、彩度を変換</p>
+          <svg width="100%" height="240">
+            <defs>
+              <!-- ぼかし-->
+              <filter id="blur">
+                <fegaussianblur stddeviation="1"></fegaussianblur>
+              </filter>
+              <!-- 色相を変換-->
+              <filter id="rotate">
+                <fecolormatrix type="hueRotate" values="90"></fecolormatrix>
+              </filter>
+              <!-- 彩度を変換-->
+              <filter id="sepia">
+                <fecolormatrix type="saturate" values="0"></fecolormatrix>
+              </filter>
+            </defs>
+            <image class="photo1" x="0" y="0" width="300" height="200" xlink:href="./images/sample.jpg"></image>
+            <image class="photo2" x="310" y="0" width="300" height="200" xlink:href="./images/sample.jpg"></image>
+            <image class="photo3" x="620" y="0" width="300" height="200" xlink:href="./images/sample.jpg"></image>
+          </svg>
+        </div>
+        <div class="block" id="sample-4">
+          <h2>マスク</h2>
+          <div class="mask-sample"><img class="mask" src="./images/sample.jpg">
+            <svg class="shape" xmlns="http://www.w3.org/2000/svg" width="0" height="0">
+              <defs>
+                <clipPath id="svgPath">
+                  <circle class="svg-1" cx="200" cy="200" r="150"></circle>
+                  <circle class="svg-2" cx="900" cy="400" r="150"></circle>
+                  <circle class="svg-3" cx="400" cy="200" r="80"></circle>
+                  <polygon points="577 194,677 344,777 194,677 44"></polygon>
+                </clipPath>
+              </defs>
+            </svg>
+          </div>
+        </div>
+      </main>
+      <script src="/js/vendor.bundle.js"></script>
+      <script src="/js/index.bundle.js"></script>
+    </body>
+  </head>
+</html>
