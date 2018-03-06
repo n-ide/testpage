@@ -184,13 +184,28 @@ h2 {
 .photo3 {
   filter: url(#sepia); }
 
-#sample-4 .mask-sample {
+#sample-5 .mask-sample {
   width: 100%;
   height: 418px;
   overflow: hidden;
   position: relative;
   background: #eee; }
 
-#sample-4 .mask {
+#sample-5 .mask {
   -webkit-clip-path: url(#svgPath);
           clip-path: url(#svgPath); }
+
+#sample-6 .mask-sample {
+  width: 100%;
+  height: 418px;
+  overflow: hidden;
+  position: relative;
+  background: #eee; }
+
+#sample-6 .shape {
+  width: 100%;
+  height: 418px; }
+
+#sample-6 .mask {
+  -webkit-clip-path: url(#svgTextPath);
+          clip-path: url(#svgTextPath); }

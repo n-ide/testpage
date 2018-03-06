@@ -61,7 +61,7 @@ html
 
 
 
-        .block#sample-4
+        .block#sample-5
           h2 マスク
           .mask-sample
             img.mask(src="./images/sample.jpg")
@@ -74,11 +74,14 @@ html
                   polygon(points="577 194,677 344,777 194,677 44")
 
 
-          //- svg(width='100%', height='400')
-          //-   clippath#clip1
-          //-     circle(cx='300', cy='300', r='150')
-          //-   image.mask1(x='0', y='0', width='860', height='400', xlink:href='./images/sample.jpg', clip-path='url(#clip1)')
-
+        .block#sample-6
+          h2 テキストマスク
+          .mask-sample
+            svg.shape(xmlns='http://www.w3.org/2000/svg')
+              image.mask(x='0', y='0', xlink:href='./images/sample.jpg')
+              defs
+                clipPath#svgTextPath
+                  text(x='150', y='250', textlength='600', font-size='100px', font-weight='bold') TextSample!!
 
 
 

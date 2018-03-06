@@ -139,7 +139,7 @@ h2{
   filter: url(#sepia);
 }
 
-#sample-4{
+#sample-5{
   .mask-sample{
     width: 100%;
     height: 418px;
@@ -151,3 +151,21 @@ h2{
     clip-path: url(#svgPath);
   }
 }
+
+#sample-6{
+  .mask-sample{
+    width: 100%;
+    height: 418px;
+    overflow: hidden;
+    position: relative;
+    background: #eee;
+  }
+  .shape{
+    width: 100%;
+    height: 418px;
+  }
+  .mask {
+    clip-path: url(#svgTextPath);
+  }
+}
+
